@@ -29,13 +29,17 @@ class HomePage extends StatelessWidget {
                       onPressed: () async {
                         // O pushNamed tem de ser um resultado que expande o objeto então aparentemente não pode ser tipado.
                         // Por cont disso utilizamos o .toString() no result logo abaixo.
-                        final result = await Navigator.pushNamed(context, '/timer');
+                        final result = await Navigator.pushNamed(
+                          context,
+                          '/timer',
+                          arguments: TimerType.focus,
+                        );
 
                         if (result != null) {
                           showDialog(
-                            context: context, 
-                            builder: (context) => 
-                              AlertDialog(title: Text(result.toString()),)
+                            context: context,
+                            builder: (context) =>
+                                AlertDialog(title: Text(result.toString())),
                           );
                         }
                       },
@@ -62,7 +66,11 @@ class HomePage extends StatelessWidget {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/timer');
+                        Navigator.pushNamed(
+                          context,
+                          '/timer',
+                          arguments: TimerType.shortBreak,
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppConfig.buttonColor,
@@ -87,7 +95,11 @@ class HomePage extends StatelessWidget {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/timer');
+                        Navigator.pushNamed(
+                          context,
+                          '/timer',
+                          arguments: TimerType.longBreak,
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppConfig.buttonColor,
