@@ -10,13 +10,16 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/home': (context) => HomePage(),
+        '/timer': (context) => TimerPage(timerType: TimerType.focus)
+      },
       title: 'Fokus',
       theme: ThemeData(
         useMaterial3: true,
         // textTheme: GoogleFonts.unboundedTextTheme(),
       ),
-      // home: const TimerPage(timerType: TimerType.longBreak,),
-      home: const HomePage(),
+      initialRoute: '/home',
     );
   }
 }
