@@ -15,6 +15,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
         // textTheme: GoogleFonts.unboundedTextTheme(),
       ),
+      // home: const TimerPage(timerType: TimerType.longBreak,),
       home: const HomePage(),
     );
   }
